@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         $dbLink->exec($queryString);
 		echo "<script>alert('帳號申請已遞交，請連絡相關管理員協助審核。')</script>";
-		echo "<script>window.location.href = 'http://140.131.114.151/web/login.php'</script>";
+		echo "<script>window.location.href = 'http://140.131.114.151/web/'</script>";
     }
     catch (PDOException $pdoe)
     {

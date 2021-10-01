@@ -24,7 +24,8 @@
 		}
 		$queryString2 = "delete from signup_check where id='".$recordForDelete."'";
 		$dbLink->exec($queryString2);
-		header('Location: http://140.131.114.151/web/sucessful.html');    exit;
+		echo "<script>alert('操作成功!')</script>";
+		echo "<script>window.location.href = '/web/signup_check.php'</script>";
     }
     catch (PDOException $pdoe)
     {
