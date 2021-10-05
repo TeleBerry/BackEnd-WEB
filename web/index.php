@@ -43,6 +43,14 @@
                     <li><a href="\web\fetchmpage.php">查詢</a></li>                      
                 </ul>
             </li>   
+			
+			<li class="sub">         
+                <a href="#">維修紀錄</a>          
+                <ul>          
+                    <li><a href="\web\insertrepairpage.php">新增</a></li>   
+                    <li><a href="\web\fetchrepair.php">查詢</a></li>                      
+                </ul>
+            </li>  
             <li class="sub">         
                 <a href="#">帳號相關</a>          
                 <ul>          
@@ -59,7 +67,8 @@
             <p>
                     您好，請透過上方選單選取增、刪、改、查功能：
 
-            <br><br>維修人員資料、設備和設備的問題
+            <br>維修人員資料、設備和設備的問題
+			<br>維修紀錄的提交與查詢
             </p>       
 			<h3><a href = "logout.php">登出</a></h3>
 			<h3><a href = "signup_check.php">帳號審核(需管理員帳號)</a></h3>

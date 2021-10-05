@@ -43,7 +43,21 @@
                     <li><a href="\web\fetchmpage.php">查詢</a></li>                    
                 </ul>
             </li>   
-                
+			
+			<li class="sub">         
+                <a href="#">維修紀錄</a>          
+                <ul>          
+                    <li><a href="\web\insertrepairpage.php">新增</a></li>   
+                    <li><a href="\web\fetchrepair.php">查詢</a></li>                      
+                </ul>
+            </li>
+			<li class="sub">         
+                <a href="#">帳號相關</a>          
+                <ul>          
+                    <li><a href="\web\signup_check.php">帳號審核(需管理員帳號)</a></li>
+                    <li><a href="\web\signup.php">帳號申請</a></li>                   
+                </ul>
+            </li>	
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 

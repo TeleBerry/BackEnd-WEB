@@ -1,5 +1,13 @@
 <?php
 	include('session.php');
+	include "dbConfig.php";
+	$queryString = "select cabnum, manum from maprob order by cabnum";
+	$recordSet = $dbLink->query($queryString);
+    $recordRow = $recordSet->fetchAll();
+	
+	$queryString1 = "select renum, name from remaninfo order by renum";
+	$recordSet1 = $dbLink->query($queryString1);
+    $recordRow1 = $recordSet1->fetchAll();
 ?>
 <!doctype html>
 <html>
@@ -12,6 +20,7 @@
 <link href="css/main.css" rel="stylesheet"/>      
 <!------------------------->
 </head>
+   
 <body>
     <!--**************************-->
     <div class="container">    
@@ -41,39 +50,67 @@
                     <li><a href="\web\updatempage.php">更新</a></li>   
                     <li><a href="\web\fetchmpage.php">查詢</a></li>                    
                 </ul>
-            </li>   
+            </li>  
 			<li class="sub">         
                 <a href="#">維修紀錄</a>          
                 <ul>          
                     <li><a href="\web\insertrepairpage.php">新增</a></li>   
                     <li><a href="\web\fetchrepair.php">查詢</a></li>                      
                 </ul>
-            </li>    
+            </li>
 			<li class="sub">         
                 <a href="#">帳號相關</a>          
                 <ul>          
                     <li><a href="\web\signup_check.php">帳號審核(需管理員帳號)</a></li>
                     <li><a href="\web\signup.php">帳號申請</a></li>                   
                 </ul>
-            </li>	            
+            </li>				
+                
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
-            <h2>請先查詢欲刪除的設備資料</h2>
+            <h2>請填入維修紀錄</h2>
 
-            <p>
-				<form action="deletem.php" method="GET">
-					<table border="0">
-						<select name="queryField">
-                            <option value="cabnum">機櫃編號</option>
-                            <option value="manum">設備編號</option>
-                            <option value="maprob">機器相關資訊</option>
-                        </select>	
-						<tr><td>搜尋內容</td><td><input type="text" name="queryString" size="20"></td></tr>
-						<tr><td></td><td align="right"><input type="submit" name="submit" value="確定"></td></tr>
-				</table>
-            </p>       
+		<form action="insertrepair.php" method="GET">
+		
+            <table border="0">				
+				<tr><td>設備編號</td><td>
+				<select name = "manum">
+				<?php
+				$cabnum='';
+				foreach($recordRow as $row):
+				$selected = '';
+					if ( $row->id == $manum ) {
+					$selected = "selected='selected'";
+					}
+					if ( $row['cabnum'] != $cabnum ) {
+						if ( $cabnum ) {
+						echo "</optgroup>";
+					}
+				?>	
+				<optgroup label="<?php echo "機櫃編號".$row['cabnum']; ?>"> 
+				<?php $cabnum = $row['cabnum'];}?>
+				<option value=<?php echo $row['manum'];?>><?php echo $row['manum']; ?></option>
+				</optgroup>
+				<?php endforeach;?>
+				</select>
+				</td></tr>
+				
+                <tr><td>維修人員</td><td>
+				<select name = "renum">
+				<?php
+				foreach($recordRow1 as $row1):
+				?>
+				<option value=<?php echo $row1['renum'];?>><?php echo $row1['name']; ?></option>
+				<?php endforeach;?>
+				</select>
+				</td></tr>
+				
+                <tr><td>備註</td><td><input type="text" name="remark" size="50"></td></tr>
+				<tr><td></td><td align="right"><input type="submit" name="submit" value="確定"></td></tr>
+            </table>
+        </form>     
                
         </div>       
         
