@@ -45,7 +45,7 @@
             print "搜尋結果如下";
             // print $queryString;
             print "<table border=1>";
-            print "<tr><td>機櫃編號</td><td>設備編號</td><td>維修人員</td><td>備註</td><td>維修時間</td></tr>";
+            print "<tr><td>機櫃編號</td><td>設備編號</td><td>維修人員</td><td>維修結果</td><td>維修時間</td></tr>";
             for ($i=0; $i<count($recordRow); $i++)
             {
                 print "<tr>";

@@ -16,7 +16,10 @@
     // 以下查詢字串的格式，請利用 like 搭配 % 敘述來做萬用字元比對
     // $queryString = "select * from student where $searchField like '%$keyWord%'";
     //-------------------------------------------------------------------------
-    $queryString = "delete from maprob where manum='".$recordForDelete."'";
+    $queryString = "
+	SET FOREIGN_KEY_CHECKS=0;
+	delete from maprob where manum='".$recordForDelete."';
+	SET FOREIGN_KEY_CHECKS=1;";
     //
     try
     {

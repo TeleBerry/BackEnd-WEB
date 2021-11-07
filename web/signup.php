@@ -22,14 +22,14 @@
 		
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
-            <h2>請輸入帳號以及密碼</h2>
+            <h2>請輸入註冊資料</h2>
 			<table border="0">
 				<form action = "" method = "post">
-                  <tr><td>UserName  :</td><td><input type = "text" name = "username" class = "box"/></td></tr>
-                  <tr><td>Password  :</td><td><input type = "password" name = "password" class = "box" /></td></tr>
-				  <tr><td>Name  :</td><td><input type = "text" name = "name" class = "box" /></td></tr>
-				  <tr><td>Telegram ID  :</td><td><input type = "text" name = "teleid" class = "box" /></td></tr>
-				  <tr><td>Email  :</td><td><input type = "text" name = "email" class = "box" /></td></tr>
+                  <tr><td>UserName(帳號)</td><td><input type = "text" name = "username" class = "box"/></td></tr>
+                  <tr><td>Password(密碼)</td><td><input type = "password" name = "password" class = "box" /></td></tr>
+				  <tr><td>Name(姓名)</td><td><input type = "text" name = "name" class = "box" /></td></tr>
+				  <tr><td>Telegram ID</td><td><input type = "text" name = "teleid" class = "box" /></td></tr>
+				  <tr><td>Email</td><td><input type = "text" name = "email" class = "box" /></td></tr>
                   <tr><td></td><td align="right"><input type = "submit" value = " 提交申請 "/></td></tr>
                </form>
             </table>   

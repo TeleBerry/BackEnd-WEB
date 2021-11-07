@@ -16,11 +16,10 @@
     // 以下查詢字串的格式，請利用 like 搭配 % 敘述來做萬用字元比對
     // $queryString = "select * from student where $searchField like '%$keyWord%'";
     //-------------------------------------------------------------------------
-    $queryString = "delete from remaninfo where renum='".$recordForDelete."'";
-	
-	
-	
-    //
+    $queryString = "
+	SET FOREIGN_KEY_CHECKS=0;
+	delete from remaninfo where renum='".$recordForDelete."';
+	SET FOREIGN_KEY_CHECKS=1;";
     try
     {
         $recordSet = $dbLink->exec($queryString);
@@ -28,16 +27,17 @@
 		{
 			break;
 		}
-		$queryString2 = "update remaninfo_log set reason ='".$recordForAdd."' where renum='".$recordForDelete."'";
+		$queryString2 = "
+		update remaninfo_log set reason ='".$recordForAdd."' where renum='".$recordForDelete."'";
 		$recordSet2 = $dbLink->exec($queryString2);
         header('Location: http://140.131.114.151/web/sucessful.html');    exit;
     }
     catch (PDOException $pdoe)
-    {
-        header('Location: http://140.131.114.151/web/lose.html');    exit;
+    {	
+		header('Location: http://140.131.114.151/web/lose.html');    exit;
     }
     //-----------------------------------------------
-    print "<br><br><a href='index.html'>創思首頁</a>";
+    print "<br><br><a href='index.html'></a>";
 ?>  
 </body>
 </html>
